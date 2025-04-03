@@ -1,0 +1,32 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build_and_deploy:
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hoge1
+        uses: actions/checkout@v2
+      - name: Hoge2
+        uses: actions/checkout@v4
+        with:
+          repository: Sugino838/Test2
+          ssh-key: ${{secrets.PUSH_KEY3}}
+
+      - name: Hoge3
+        run: |
+          
+          git config --global user.email masashi.sugino@brother.co.jp
+          git config --global user.name Sugino838
+          git fetch https://github.com/Sugino838/Test.git
+          git reset --hard FETCH_HEAD
+          git commit -m "second commit" --allow-empty
+          git push origin main -f
+          echo momomo
