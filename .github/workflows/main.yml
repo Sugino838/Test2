@@ -25,7 +25,10 @@ jobs:
           
           git config --global user.email masashi.sugino@brother.co.jp
           git config --global user.name Sugino838
-          git fetch https://github.com/Sugino838/Test.git main
+          git remote -v
+          git remote add copy_to_repo https://github.com/Sugino838/Test.git
+          git fetch copy_to_repo main
+          git remote -v
           git reset --hard FETCH_HEAD
           git commit -m "second commit" --allow-empty
           git push origin main -f
