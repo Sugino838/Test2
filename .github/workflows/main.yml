@@ -27,6 +27,6 @@ jobs:
           git config --global user.name Sugino838
           git remote add mirror_repo https://github.com/Sugino838/Test.git
           git fetch mirror_repo main
-          git checkout mirror_repo/main
+          git checkout mirror_repo/main -b temp
           git push origin main -f
           echo momomo
