@@ -28,5 +28,5 @@ jobs:
           git remote add mirror_repo https://github.com/Sugino838/Test.git
           git fetch mirror_repo mirror
           git checkout mirror_repo/mirror
-          git push origin main -f
+          git push origin mirror -f
           echo momomo
