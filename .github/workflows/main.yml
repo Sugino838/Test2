@@ -25,9 +25,8 @@ jobs:
           
           git config --global user.email masashi.sugino@brother.co.jp
           git config --global user.name Sugino838
-          git remote add mirror_repo https://github.com/Sugino838/Test.git
-          git fetch mirror_repo main
-          git checkout mirror_repo/main -b temp
+          git fetch https://github.com/Sugino838/Test.git
+          git reset --hard FETCH_HEAD
           git commit -m "second commit" --allow-empty
           git push origin main -f
           echo momomo
