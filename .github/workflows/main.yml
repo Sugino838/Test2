@@ -17,7 +17,7 @@ jobs:
       - name: Hoge2
         uses: actions/checkout@v4
         with:
-          repository: Sugino838/Test2
+          github-server-url: git@github.ap.brothergroup.net:suginoma/test1.git
           ssh-key: ${{secrets.PUSH_KEY3}}
 
       - name: Hoge3
