@@ -14,10 +14,15 @@ jobs:
     steps:
       - name: Hoge1
         uses: actions/checkout@v2
+      - name: Hoge2
+        uses: actions/checkout@v4
+        with:
+          repository: Sugino838/Test2
+          ssh-key: ${{secrets.PUSH_KEY3}}
+
       - name: Hoge3
         run: |
-          git remote add enterprise https://github.ap.brothergroup.net/suginoma/test1.git
-          git push enterprise main -f
+          
           git config --global user.email masashi.sugino@brother.co.jp
           git config --global user.name Sugino838
           git fetch https://github.com/Sugino838/Test.git
