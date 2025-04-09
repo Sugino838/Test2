@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git clone --branch gh-pages <https://x-access-token:${{> secrets.PUSH_KEY }}@github.ap.brothergroup.net:suginoma/test1.git out
+        rsync -av --delete ./path/to/build/output/ out/
+        cd out
+        git add .
+        git commit -m 'Deploy to GitHub Pages'
